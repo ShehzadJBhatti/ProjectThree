@@ -4,16 +4,11 @@ on: [push]
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2019
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
-    - name: Setup .NET Framework 4.5.2
-      run: |
-        Invoke-WebRequest "https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net452-developer-pack-offline-installer" -OutFile "dotNetFx45_Full_setup.exe"
-        ./dotNetFx45_Full_setup.exe /q /norestart
 
     - name: Build solution
       run: |
